@@ -9,10 +9,10 @@ from django.conf.urls import patterns
 from apps.fumoufeed.views import PeopleApi, PostApi
 
 urlpatterns = patterns('',
-    (r'^people/(?P<fuid>\w+)', PeopleApi.as_view()),
+    (r'^people/(\w+)', PeopleApi.as_view()),
     (r'^people/', PeopleApi.as_view()),
     (r'^post/list', PostApi.list),
-    (r'^post/(?P<fpid>\w+)', PostApi.as_view()),
+    (r'^post/(\w+)', PostApi.as_view()),
     (r'^post', PostApi.as_view()),
 )
 

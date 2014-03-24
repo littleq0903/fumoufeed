@@ -21,7 +21,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-        'NAME': 'console',
+        'NAME': 'fumoufeed',
         'INSTANCE': 'tagtoosql:test'
     }
 }
@@ -175,5 +175,5 @@ FACEBOOK_APP_SECRET = ""
 
 try:
     from local_settings import *
-except:
+except Exception as e:
     pass
