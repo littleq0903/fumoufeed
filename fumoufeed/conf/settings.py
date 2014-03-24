@@ -2,7 +2,7 @@
 import os
 import sys
 
-IS_PRODUCTION = True if os.env['SERVER_SOFTWARE'].startswith('Google App Engine') else False
+IS_PRODUCTION = True if os.environ['SERVER_SOFTWARE'].startswith('Google App Engine') else False
 CONFIG_DIR = os.path.abspath(os.path.dirname(__file__)) 
 PROJECT_DIR = os.path.dirname(CONFIG_DIR)
 
