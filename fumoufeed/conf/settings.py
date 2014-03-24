@@ -17,23 +17,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if IS_PRODUCTION:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-            'NAME': 'console',
-            'INSTANCE': 'tagtoosql:tagtoo'
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'google.appengine.ext.django.backends.rdbms',
+        'NAME': 'console',
+        'INSTANCE': 'tagtoosql:tagtoo'
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'django_deployer_default',
-            'USER': '',
-            'PASSWORD': '',
-        }
-    }
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -181,7 +171,6 @@ INSTALLED_APPS = tuple(list(INSTALLED_APPS) + list(SITE_APPS))
 # Facebook
 FACEBOOK_APP_ID = ""
 FACEBOOK_APP_SECRET = ""
-
 
 try:
     from local_settings import *

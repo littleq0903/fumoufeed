@@ -1,3 +1,3 @@
 'use strict';
 
-FuMou = FuMou || {};
+FuMou = typeof FuMou === 'undefined' ? {} : FuMou;
