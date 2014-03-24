@@ -7,11 +7,10 @@
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': 'tagtoocusps',
-        'HOST': '173.194.105.165',
-        'NAME': 'console',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db',
+        'USER': '',
+        'PASSWORD': '',
     }
 }
 

@@ -15,6 +15,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^apis/', include('apps.fumoufeed.urls', namespace="fumoufeed")),
     url(r'^', include('apps.globals.urls', namespace="globals")),
 )
 

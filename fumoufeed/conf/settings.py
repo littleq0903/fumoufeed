@@ -2,7 +2,7 @@
 import os
 import sys
 
-IS_PRODUCTION = True if os.environ['SERVER_SOFTWARE'].startswith('Google App Engine') else False
+IS_PRODUCTION = True if os.environ.has_key('SERVER_SOFTWARE') and os.environ['SERVER_SOFTWARE'].startswith('Google App Engine') else False
 CONFIG_DIR = os.path.abspath(os.path.dirname(__file__)) 
 PROJECT_DIR = os.path.dirname(CONFIG_DIR)
 
@@ -21,8 +21,8 @@ if IS_PRODUCTION:
     DATABASES = {
         'default': {
             'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-            'NAME': 'console',
-            'INSTANCE': 'tagtoosql:tagtoo'
+            'NAME': 'fumoufeed',
+            'INSTANCE': 'tagtoosql:test'
         }
     }
 else:
