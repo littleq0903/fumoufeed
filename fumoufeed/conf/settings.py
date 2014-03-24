@@ -1,9 +1,11 @@
 # Django settings for conf project.
 import os
+import sys
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__)) 
+CONFIG_DIR = os.path.abspath(os.path.dirname(__file__)) 
+PROJECT_DIR = os.path.dirname(CONFIG_DIR)
 
-STATIC_ROOT = os.path.join(BASE_DIR, '../../static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -126,6 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 )
 
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -155,5 +158,21 @@ LOGGING = {
     }
 }
 
+## Custom Settings
+# install apps
+SITE_APPS = (
+    'fumoufeed.apps.globals',
+    'fumoufeed.apps.fumoufeed',
+)
 
-from local_settings import *
+INSTALLED_APPS = tuple(list(INSTALLED_APPS) + list(SITE_APPS))
+
+# Facebook
+FACEBOOK_APP_ID = ""
+FACEBOOK_APP_SECRET = ""
+
+
+try:
+    from local_settings import *
+except:
+    pass
