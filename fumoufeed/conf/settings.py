@@ -2,6 +2,7 @@
 import os
 import sys
 
+IS_PRODUCTION = True if os.env['SERVER_SOFTWARE'].startswith('Google App Engine') else False
 CONFIG_DIR = os.path.abspath(os.path.dirname(__file__)) 
 PROJECT_DIR = os.path.dirname(CONFIG_DIR)
 
@@ -16,13 +17,23 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'google.appengine.ext.django.backends.rdbms',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'console',                      # Or path to database file if using sqlite3.
-        'INSTANCE': 'tagtoosql:tagtoo'
+if IS_PRODUCTION:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'google.appengine.ext.django.backends.rdbms',
+            'NAME': 'console',
+            'INSTANCE': 'tagtoosql:tagtoo'
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'django_deployer_default',
+            'USER': '',
+            'PASSWORD': '',
+        }
+    }
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
