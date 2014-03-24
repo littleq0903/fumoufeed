@@ -17,23 +17,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if IS_PRODUCTION:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-            'NAME': 'fumoufeed',
-            'INSTANCE': 'tagtoosql:test'
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'google.appengine.ext.django.backends.rdbms',
+        'NAME': 'fumoufeed',
+        'INSTANCE': 'tagtoosql:test'
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db',
-            'USER': '',
-            'PASSWORD': '',
-        }
-    }
+}
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -184,5 +175,5 @@ FACEBOOK_APP_SECRET = ""
 
 try:
     from local_settings import *
-except:
+except Exception as e:
     pass
