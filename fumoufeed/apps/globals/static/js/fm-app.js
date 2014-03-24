@@ -1,5 +1,6 @@
-FuMou = FuMou || {};
+'use strict';
 
+FuMou = FuMou || {};
 
 FuMou.app = {
     // Views
