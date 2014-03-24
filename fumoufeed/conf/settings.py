@@ -2,7 +2,7 @@
 import os
 import sys
 
-IS_PRODUCTION = True if os.environ['SERVER_SOFTWARE'].startswith('Google App Engine') else False
+IS_PRODUCTION = True if os.environ.has_key('SERVER_SOFTWARE') and os.environ['SERVER_SOFTWARE'].startswith('Google App Engine') else False
 CONFIG_DIR = os.path.abspath(os.path.dirname(__file__)) 
 PROJECT_DIR = os.path.dirname(CONFIG_DIR)
 
@@ -24,7 +24,6 @@ DATABASES = {
         'NAME': 'console',
         'INSTANCE': 'tagtoosql:test'
     }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
