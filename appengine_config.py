@@ -5,7 +5,10 @@
 import sys
 import os
 
-lib_dir = os.path.join(os.path.dirname(__file__), 'fumoufeed')
+django_dir = os.path.join(os.path.dirname(__file__), 'fumoufeed')
+lib_dir = os.path.join(os.path.dirname(__file__), 'libs')
 
 # add vendor path
+
+sys.path.insert(0, django_dir)
 sys.path.insert(0, lib_dir)
