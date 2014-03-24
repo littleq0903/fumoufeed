@@ -1,0 +1,6 @@
+body.loggedout .loggedin {
+    display: none;
+}
+body.loggedin .loggedout {
+    display: none;
+}

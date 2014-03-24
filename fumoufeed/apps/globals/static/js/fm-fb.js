@@ -1,9 +1,7 @@
-'use strict';
-
 FuMou = typeof FuMou === 'undefined' ? {} : FuMou;
 
 
-FuMou.FB = {
+FuMou.fb = {
     // Configuration
     loginOptions: {
         scope: [
@@ -12,22 +10,32 @@ FuMou.FB = {
     },
 
     // Methods
-
-    loginFacebook: function (cb) {
+    login: function (cb) {
         /*
          * cb: callback function
-         * hasPopup: prompt to user to request permissions
          */
-        hasPopup = hasPopup || false;
+        var cb = cb || function(){};
 
         var summaryLoginOptions = {
-            scope: FuMou.FB.loginOptions.scope.join(','),
+            scope: FuMou.fb.loginOptions.scope.join(','),
         };
 
         FB.login(cb, summaryLoginOptions);
+    },
+
+    getProfile: function (cb) {
+        FB.api('/me', cb);
+    },
+
+    getSinglePost: function (fb_post_id, cb) {
+        var innerCallback = function (response) {
+            cb(response);
+        };
+        FB.api('/' + fb_post_id, innerCallback);
+    },
+
+    getPersonalPosts: function (cb) {
+        FB.api('/me/posts', cb);
     }
 
-
-    
-    
 };

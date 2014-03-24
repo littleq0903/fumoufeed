@@ -20,8 +20,10 @@
         padding-top: 65px;
     }
     </style>
+    <!-- application stylesheet -->
+    <link rel="stylesheet" href="/static/css/app.css">
 </head>
-<body>
+<body class="loggedout">
     <!-- START: webapp content -->
 
     <!--
@@ -57,11 +59,11 @@
                 </ul>
 
                 <ul id="login-status" class="nav navbar-nav navbar-right">
-                    <li><a id="fb-btn-login" href="#login">
+                    <li class="loggedout"><a id="fb-btn-login" href="#login">
                         <span class="glyphicon glyphicon-user"></span>&nbsp;登入
                     </a></li>
-                    <li><a href="#logout" id="fb-username-wrapper">
-                        <span class="glyphicon glyphicon-user"></span>&nbsp;<span id="fb-username">Colin Su</span>
+                    <li class="loggedin"><a href="#logout" id="fb-username-wrapper">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;<span id="fb-username"></span>
                     </a></li>
                 </ul>
             </div><!--/.nav-collapse -->
@@ -99,10 +101,42 @@
                     <form id="submit-form" role="form">
                         <div class="form-group">
                             <label>臉書帳號</label>
-                            <input class='form-control' type="text" disabled id="submit-form-fbname" value="Colin Su">
+                            <input class='form-control' type="text" disabled id="submit-form-fbname" value="">
                         </div>
                         <div class="form-group">
                             <label>要轉貼的文章</label>
+                            <div id="fm-post-options"></div>
+
+                            <!-- simple template for options -->
+                            <script id="fm-template-submit-post" type="text/x-underscore">
+                            <% _.each(posts, function(post) { %>
+                                    <% if (post.type === "link") { %>
+                                        <div class="radio">
+                                        <label>
+                                            <input type="radio" name="fm-post-selected" value="<%= post.id %>" checked>
+                                            Link: <%= post.name %>
+                                        </label>
+                                        </div>
+                                    <% } else if (post.type === "status" && post.message) { %>
+                                        <div class="radio">
+                                        <label>
+                                            <input type="radio" name="fm-post-selected" value="<%= post.id %>" checked>
+                                            Update: <%= post.message.replace(/\\n/g, "<br>") %>
+                                        </label>
+                                        </div>
+                                    <% } else if (post.type === "photo") { %>
+                                        <div class="radio">
+                                        <label>
+                                            <input type="radio" name="fm-post-selected" value="<%= post.id %>" checked>
+                                        <img src="<%= post.picture %>">
+                                        </div>
+                                    <% } %>
+                            <% }); %>
+                            </script>
+
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="button">送出</button>
                         </div>
                     </form>
                 </div>
@@ -125,6 +159,10 @@
                 status     : true,
                 xfbml      : true
             });
+            FuMou.fb.login(function(response){
+                FuMou.app.init();
+                FuMou.app.loggedIn();
+            });
         };
 
         (function(d, s, id){
@@ -137,6 +175,8 @@
     </script>
 
     <!-- Latest compiled and minified JavaScript -->
+    <!-- Underscore 1.6 -->
+    <script src="/static/libs/underscore/underscore-min.js"></script>
     <!-- jQuery 1.11.0 -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Bootstrap JS Library -->
