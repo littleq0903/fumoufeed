@@ -5,6 +5,7 @@ from django.db import models
 class People(models.Model):
     fuid = models.CharField(max_length=255, primary_key=True)
     title = models.CharField(max_length=511)
+    name = models.CharField(max_length=511)
 
 class Post(models.Model):
     author = models.ForeignKey(People)

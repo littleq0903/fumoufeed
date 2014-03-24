@@ -3,7 +3,10 @@ from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-admin.autodiscover()
+try:
+    admin.autodiscover()
+except:
+    pass
 
 urlpatterns = patterns('',
     # Examples:
