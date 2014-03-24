@@ -1,5 +1,6 @@
-FuMou = FuMou || {};
+'use strict';
 
+FuMou = typeof FuMou === 'undefined' ? {} : FuMou;
 
 FuMou.app = {
     // Views

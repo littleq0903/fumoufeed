@@ -6,9 +6,9 @@
 # Distributed under terms of the MIT license.
 
 from django.conf.urls import patterns
-from django.views.generic import TemplateView
+from views import IndexView
 
 urlpatterns = patterns('',
-    (r'^$', TemplateView.as_view(template_name="globals/index.html")),
+    (r'^$', IndexView.as_view()),
 )
 

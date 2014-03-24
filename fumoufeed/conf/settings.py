@@ -29,7 +29,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'django_deployer_default',
+            'NAME': 'db',
             'USER': '',
             'PASSWORD': '',
         }
@@ -181,7 +181,6 @@ INSTALLED_APPS = tuple(list(INSTALLED_APPS) + list(SITE_APPS))
 # Facebook
 FACEBOOK_APP_ID = ""
 FACEBOOK_APP_SECRET = ""
-
 
 try:
     from local_settings import *

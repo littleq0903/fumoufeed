@@ -52,15 +52,17 @@
             <!-- navigation -->
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <!--
-                    <li class="active"><a href="#">我要連署</a></li>
-                    <li><a href="#about">誰來連署</a></li>
-                    -->
+                    <li class="active"><a href="#feed">探索真相</a></li>
+                    <li><a href="#submit">我有真相</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a id="fb-btn-login" href="#login"><span class="glyphicon glyphicon-user"></span>&nbsp;登入</a></li>
-                    <li><a href="#logout" id="fb-username-wrapper" class="hide"><span class="glyphicon glyphicon-user">&nbsp;<span id="fb-username"></span></a></li>
+                <ul id="login-status" class="nav navbar-nav navbar-right">
+                    <li><a id="fb-btn-login" href="#login">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;登入
+                    </a></li>
+                    <li><a href="#logout" id="fb-username-wrapper">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;<span id="fb-username">Colin Su</span>
+                    </a></li>
                 </ul>
             </div><!--/.nav-collapse -->
 
@@ -91,6 +93,22 @@
         <!--
         Submit: submit interface for posting.
         -->
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="well well-lg">
+                    <form id="submit-form" role="form">
+                        <div class="form-group">
+                            <label>臉書帳號</label>
+                            <input class='form-control' type="text" disabled id="submit-form-fbname" value="Colin Su">
+                        </div>
+                        <div class="form-group">
+                            <label>要轉貼的文章</label>
+                        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     
     </div>
     
@@ -121,7 +139,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <!-- jQuery 1.11.0 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Bootstrap JS Library -->
     <script src="/static/libs/bootstrap/js/bootstrap.min.js"></script>
 
