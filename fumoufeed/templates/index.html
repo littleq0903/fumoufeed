@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FuMou Feed</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/libs/bootstrap/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/static/libs/bootstrap/css/todc-bootstrap.min.css">
+    <!-- masthead fixed height -->
+    <style>
+    body {
+        min-height: 2000px;
+        padding-top: 65px;
+    }
+    </style>
+</head>
+<body>
+    <!-- START: webapp content -->
+
+    <!--
+
+    #     # #######    #    ######  ####### ######  
+    #     # #         # #   #     # #       #     # 
+    #     # #        #   #  #     # #       #     # 
+    ####### #####   #     # #     # #####   ######  
+    #     # #       ####### #     # #       #   #   
+    #     # #       #     # #     # #       #    #  
+    #     # ####### #     # ######  ####### #     # 
+                                                
+    -->
+    <div class="navbar navbar-masthead navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <!-- logo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">服貿真相</a>
+            </div><!-- /.navbar-header -->
+
+            <!-- navigation -->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!--
+                    <li class="active"><a href="#">我要連署</a></li>
+                    <li><a href="#about">誰來連署</a></li>
+                    -->
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="fb-btn-login" href="#login"><span class="glyphicon glyphicon-user"></span>&nbsp;登入</a></li>
+                    <li><a href="#logout" id="fb-username-wrapper" class="hide"><span class="glyphicon glyphicon-user">&nbsp;<span id="fb-username"></span></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+
+        </div>
+    </div>
+
+    <!--
+
+     #####  ####### #     # #######    #    ### #     # ####### ######  
+    #     # #     # ##    #    #      # #    #  ##    # #       #     # 
+    #       #     # # #   #    #     #   #   #  # #   # #       #     # 
+    #       #     # #  #  #    #    #     #  #  #  #  # #####   ######  
+    #       #     # #   # #    #    #######  #  #   # # #       #   #   
+    #     # #     # #    ##    #    #     #  #  #    ## #       #    #  
+     #####  ####### #     #    #    #     # ### #     # ####### #     # 
+
+    Containers
+    -->
+
+    <div class="container container-feed">
+        <!--
+        Feed: interface of showing collected posts.
+        -->
+    
+    </div>
+
+    <div class="container container-submit">
+        <!--
+        Submit: submit interface for posting.
+        -->
+    
+    </div>
+    
+    <!-- END: webapp content -->
+    
+    <!--
+        JavaScript Libraries Initialization
+    -->
+    <!-- init Facebook JS SDK -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '{{ FACEBOOK_APP_ID }}',
+                status     : true,
+                xfbml      : true
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- jQuery 1.11.0 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Bootstrap JS Library -->
+    <script src="/static/libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--
+        JavaScript Application Initialization
+    -->
+    <script src="/static/js/fm-fb.js"></script>
+    <script src="/static/js/fm-util.js"></script>
+    <script src="/static/js/fm-app.js"></script>
+
+</body>
+</html>
