@@ -12,6 +12,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
+    ('Colin Su', 'littleq0903@gmail.com'),
     # ('Your Name', 'your_email@example.com'),
 )
 
@@ -21,7 +22,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'google.appengine.ext.django.backends.rdbms',
         'NAME': 'console',
-        'INSTANCE': 'tagtoosql:tagtoo'
+        'INSTANCE': 'tagtoosql:test'
     }
 }
 
