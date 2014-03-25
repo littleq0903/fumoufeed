@@ -165,7 +165,6 @@ LOGGING = {
 SITE_APPS = (
     'fumoufeed.apps.globals',
     'fumoufeed.apps.fumoufeed',
-    'south',
 )
 
 INSTALLED_APPS = tuple(list(INSTALLED_APPS) + list(SITE_APPS))

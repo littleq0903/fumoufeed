@@ -20,10 +20,10 @@ builtins:
 
 handlers:
 - url: /static
-  static_dir: static
+  static_dir: fumoufeed/static
 
 - url: /media
-  static_dir: media
+  static_dir: fumoufeed/media
 
 - url: /admin/.*
   script: fumoufeed.conf.wsgi.application
