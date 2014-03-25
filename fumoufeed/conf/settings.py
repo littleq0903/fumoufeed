@@ -170,8 +170,8 @@ SITE_APPS = (
 INSTALLED_APPS = tuple(list(INSTALLED_APPS) + list(SITE_APPS))
 
 # Facebook
-FACEBOOK_APP_ID = ""
-FACEBOOK_APP_SECRET = ""
+FACEBOOK_APP_ID = "1426433250937417"
+FACEBOOK_SECRET = "4569fc5fda555c0f143c457360ea66b9"
 
 try:
     from local_settings import *

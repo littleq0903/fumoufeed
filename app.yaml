@@ -25,7 +25,7 @@ handlers:
 - url: /media
   static_dir: fumoufeed/media
 
-- url: /admin/.*
+- url: /.*
   script: fumoufeed.conf.wsgi.application
 
 env_variables:
@@ -34,7 +34,7 @@ env_variables:
 skip_files:
 - .*\.DS_Store
 - \.git/*
-- local_settings.pyc?$
+- .*/local_settings.pyc?$
 - .*\.pyc
 - .*\.rb
 - .*\.sass
