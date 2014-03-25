@@ -20,7 +20,7 @@ class PeopleApi(View):
     def get(self, *args, **kwargs):
         fuid = self.request.path.split('/')[-1]
         people = People.objects.get(fuid=fuid)
-        return JsonResponse({'fuid': people.fuid, 'title': people.title})
+        return JsonResponse({'fuid': people.fuid, 'title': people.title, 'name': people.name})
 
     def post(self, *args, **kwargs):
         fuid = self.request.REQUEST.get('fuid')
@@ -53,7 +53,10 @@ class PostApi(View):
         fuid = self.request.REQUEST.get('fuid')
         fpid = self.request.REQUEST.get('fpid')
         
-        people = People.objects.get(fuid=fuid)
+        try:
+            people = People.objects.get(fuid=fuid)
+        except:
+            People(fuid=fuid)
     
         try:
             post = Post.objects.get(fpid=fpid)
