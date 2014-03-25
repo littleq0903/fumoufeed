@@ -3,7 +3,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'root',
-        'PASSWORD': 'tagtoocusps',
+        'PASSWORD': 'test',
         'HOST': '173.194.87.37',
         'NAME': 'fumoufeed',
     }
