@@ -3,6 +3,7 @@ from apps.fumoufeed.models import *
 from django.views.generic import View
 from django.http import HttpResponse
 import re
+from django.views.decorators.csrf import csrf_exempt
 
 def JsonResponse(data, status=200):
     import json
@@ -11,6 +12,11 @@ def JsonResponse(data, status=200):
 
 
 class PeopleApi(View):
+
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(PeopleApi, self).dispatch(*args, **kwargs)
+
     def get(self, *args, **kwargs):
         fuid = self.request.path.split('/')[-1]
         people = People.objects.get(fuid=fuid)
@@ -39,6 +45,10 @@ class PeopleApi(View):
 
 
 class PostApi(View):
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(PostApi, self).dispatch(*args, **kwargs)
+
     def post( self, *args, **kwargs):
         fuid = self.request.REQUEST.get('fuid')
         fpid = self.request.REQUEST.get('fpid')
@@ -55,7 +65,7 @@ class PostApi(View):
 
     def delete( self, *args, **kwargs):
         fpid = self.request.path.split('/')[-1]
-        post = Post.objects.get(feed_id=fpid)
+        post = Post.objects.get(fpid=fpid)
         post.live = False
         post.save()
         return JsonResponse({'success': True})
