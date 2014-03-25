@@ -16,7 +16,6 @@ def main():
     #cmd = r'"C:\Program Files (x86)\Google\google_appengine\appcfg.py"'
     cmd = r'"appcfg.py"'
     os.system(cmd + " update app.yaml " + " -A %s -e zorro0555@gmail.com --passin "%appId)
-    os.system("pause")
 
 
 if __name__ == "__main__":
