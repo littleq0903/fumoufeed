@@ -4,3 +4,13 @@ body.loggedout .loggedin {
 body.loggedin .loggedout {
     display: none;
 }
+body > div.container {
+    display: none;
+}
+body.container-feed > div.container-feed {
+    display: block;
+}
+body.container-submit > div.container-submit {
+    display: block;
+}
+    

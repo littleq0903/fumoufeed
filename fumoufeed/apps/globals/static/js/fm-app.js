@@ -2,9 +2,8 @@ FuMou = typeof FuMou === 'undefined' ? {} : FuMou;
 
 FuMou.app = {
     // Views
-    initFeedView: function () {},
 
-    initSubmitView: function () {
+    updateSubmitView: function () {
         FuMou.fb.getPersonalPosts(function(response){
             var posts = response.data;
             console.debug(posts);
@@ -14,6 +13,24 @@ FuMou.app = {
         });
     },
 
+    updateFeedView: function () {
+
+    },
+
+    initFeedView: function () {
+        this.updateFeedView();
+    },
+
+    initSubmitView: function () {
+        // submit button
+        $('#fm-submit-btn').click(function(e){
+        
+        });
+
+        this.updateSubmitView();
+    },
+
+    // Utils
     loggedIn: function () {
         FuMou.fb.getProfile(function(response){
             var myName = response.name;
@@ -28,10 +45,27 @@ FuMou.app = {
     loggedOut: function () {
         $("body").addClass('loggedout').removeClass('loggedin');
     },
+
+    switchPage: function (pageClass) {
+        var allPageClasses = ['container-feed', 'container-submit'];
+        var $body = $("body");
+
+        allPageClasses.map(function(pc) {
+            $body.removeClass(pc);
+        });
+        $body.addClass(pageClass);
+    },
+
     
+    
+    // Entry point 
     init: function () {
+
+
         // function to init all things
         FuMou.app.initFeedView();
         FuMou.app.initSubmitView();
+
+        this.switchPage('container-submit');
     }
 }
