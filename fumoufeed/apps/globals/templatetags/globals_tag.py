@@ -9,7 +9,6 @@ import codecs
 import os
 from django import template
 
-import pdb;pdb.set_trace()
 register = template.Library()
 
 app_path = os.path.join(os.path.dirname(__file__), '../') 
