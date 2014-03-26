@@ -1,3 +1,5 @@
+{% load globals_tag %}
+{{ "test.html"|js_template }}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +13,7 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/static/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://plus.google.com/_/scs/apps-static/_/ss/k=oz.home.14sxgobsy1uw0.L.W.O/am=IGCYMQAAgTQUAACABgEIAVAPxAAAIBU/d=0/rs=AItRSTOKNs9QDHDu0fS9NIJwonKkm2TaEw">
     <!-- Optional theme -->
     <link rel="stylesheet" href="/static/libs/bootstrap/css/todc-bootstrap.min.css">
     <!-- masthead fixed height -->
@@ -19,23 +22,55 @@
         min-height: 2000px;
         padding-top: 65px;
     }
+    .content_box{
+        display: inline-block;
+        border: 1px dotted #4F4F4F;
+        padding: 10px;
+        margin: 5px 5px 5px 0;
+        overflow:hidden;
+        width:337px;
+    }
+    .container-feed{
+        background: #e5e5e5;
+    }
+    .w360{
+        width: 360px;
+    }
     </style>
     <!-- application stylesheet -->
     <link rel="stylesheet" href="/static/css/app.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- Underscore 1.6 -->
+    <script src="/static/libs/underscore/underscore-min.js"></script>
+    <!-- jQuery 1.11.0 -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Bootstrap JS Library -->
+    <script src="/static/libs/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Masonry -->
+    <script src="/static/libs/masonry/masonry.pkgd.min.js"></script>
+
+    <!--
+        JavaScript Application Initialization
+    -->
+    <script src="/static/js/fm-fb.js"></script>
+    <script src="/static/js/fm-util.js"></script>
+    <script src="/static/js/fm-app.js"></script>
+
 </head>
 <body class="loggedout">
     <!-- START: webapp content -->
 
     <!--
 
-    #     # #######    #    ######  ####### ######  
-    #     # #         # #   #     # #       #     # 
-    #     # #        #   #  #     # #       #     # 
-    ####### #####   #     # #     # #####   ######  
-    #     # #       ####### #     # #       #   #   
-    #     # #       #     # #     # #       #    #  
-    #     # ####### #     # ######  ####### #     # 
-                                                
+    #     # #######    #    ######  ####### ######
+    #     # #         # #   #     # #       #     #
+    #     # #        #   #  #     # #       #     #
+    ####### #####   #     # #     # #####   ######
+    #     # #       ####### #     # #       #   #
+    #     # #       #     # #     # #       #    #
+    #     # ####### #     # ######  ####### #     #
+
     -->
     <div class="navbar navbar-masthead navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -73,13 +108,13 @@
 
     <!--
 
-     #####  ####### #     # #######    #    ### #     # ####### ######  
-    #     # #     # ##    #    #      # #    #  ##    # #       #     # 
-    #       #     # # #   #    #     #   #   #  # #   # #       #     # 
-    #       #     # #  #  #    #    #     #  #  #  #  # #####   ######  
-    #       #     # #   # #    #    #######  #  #   # # #       #   #   
-    #     # #     # #    ##    #    #     #  #  #    ## #       #    #  
-     #####  ####### #     #    #    #     # ### #     # ####### #     # 
+     #####  ####### #     # #######    #    ### #     # ####### ######
+    #     # #     # ##    #    #      # #    #  ##    # #       #     #
+    #       #     # # #   #    #     #   #   #  # #   # #       #     #
+    #       #     # #  #  #    #    #     #  #  #  #  # #####   ######
+    #       #     # #   # #    #    #######  #  #   # # #       #   #
+    #     # #     # #    ##    #    #     #  #  #    ## #       #    #
+     #####  ####### #     #    #    #     # ### #     # ####### #     #
 
     Containers
     -->
@@ -88,7 +123,54 @@
         <!--
         Feed: interface of showing collected posts.
         -->
-    
+
+        <div id="_container" style="overflow:hidden; margin:0 auto;">
+            <div id="t1" class="Yp yt Xa w360 feed-box">
+                <div class="Ee BK ge">
+                    <div class="ki ve">
+                        <div class="ys">
+                            <a href="./114189818717017905787" class="ob Jk" >
+                                <img src="https://lh4.googleusercontent.com/-lFeuiwoH4CA/AAAAAAAAAAI/AAAAAAAAdgY/HKVCPzPGjNI/s46-c-k-no/photo.jpg" width="46px" height="46px" alt="" class="Uk wi hE" >
+                            </a>
+                            <div class="f5 wy">
+                                <header class="lea">
+                                    <h3 class="zi"><a href="./114189818717017905787" class="ob tv Ub Hf" oid="114189818717017905787">可愛寵物分享 Pet Show</a>
+                                    </h3>
+                                </header>
+                            </div>
+                            <div class="QM"></div>
+                        </div>
+                        <div class="Al pf">
+                            <div class="Xx xJ">
+                                <div class="Ig At dn" style="padding-bottom: 40px;">
+                                    <div class="Bt Pm">
+                                        <div class="tG QF">&nbsp;</div>
+                                        <div class="Ct">洗澡澡囉&nbsp;ヽ(✿ﾟ▽ﾟ)ノ﻿</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yx Nf">
+                                <div class="q9 yg">
+                                    <div class="sp ej xI Zo" style="width:346px;height:168px;max-height:194px;">
+                                        <a href="photos/114189818717017905787/albums/5993950785297498705/5993950788143769650" target="_top" class="d-s ob Ks" tabindex="0">
+                                            <img src="//lh6.googleusercontent.com/-DulMcJvx2lE/Uy7KfAh7aDI/AAAAAAAA0d8/A5FuPJ8cHCA/w346-h194/2050.gif" class="ar Mc hoverZoomLink" style="max-height:194px; max-width:346px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Qg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_box feed-box">內容1</div>
+            <div class="content_box feed-box">內容2</div>
+            <div class="content_box feed-box">內容3</div>
+            <div class="content_box feed-box">內容4</div>
+            <div class="content_box feed-box">內容5</div>
+            <div class="content_box feed-box">內容6</div>
+        </div>
+
     </div>
 
     <div class="container container-submit">
@@ -142,11 +224,11 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
-    
+
     <!-- END: webapp content -->
-    
+
     <!--
         JavaScript Libraries Initialization
     -->
@@ -172,25 +254,12 @@
             js.src = "//connect.facebook.net/en_US/all.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+        $('#_container').masonry({
+            columnWidth: 380,
+            itemSelector: '.feed-box'
+        });
     </script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- Underscore 1.6 -->
-    <script src="/static/libs/underscore/underscore-min.js"></script>
-    <!-- jQuery 1.11.0 -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Bootstrap JS Library -->
-    <script src="/static/libs/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Masonry -->
-    <script src="/static/libs/masonry/masonry.pkgd.min.js"></script>
-
-
-    <!--
-        JavaScript Application Initialization
-    -->
-    <script src="/static/js/fm-fb.js"></script>
-    <script src="/static/js/fm-util.js"></script>
-    <script src="/static/js/fm-app.js"></script>
 
 </body>
 </html>
